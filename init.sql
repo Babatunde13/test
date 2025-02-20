@@ -1,0 +1,2 @@
+CREATE DATABASE IF NOT EXISTS library_admin;
+CREATE DATABASE IF NOT EXISTS library_frontend;
