@@ -2,16 +2,14 @@ from fastapi import FastAPI, HTTPException, Depends
 from typing import List
 from sqlalchemy.orm import Session
 from . import models, database
+from .config import config
 from shared.models import Book, User, Loan
 from datetime import datetime
-import requests, os
-from dotenv import load_dotenv
-
-load_dotenv()
+import requests
 
 app = FastAPI()
 
-FRONTEND_API_URL=os.getenv("FRONTEND_API_URL")
+FRONTEND_API_URL= config.FRONTEND_API_URL
 @app.get("/")
 def read_root():
     return {"Hello": "World"}

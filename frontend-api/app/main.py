@@ -5,14 +5,14 @@ from sqlalchemy.exc import IntegrityError
 from . import models, database
 from datetime import datetime, timedelta
 from shared.models import Book, User
-import os, requests
-from dotenv import load_dotenv
+import requests
+from .config import config
 
-load_dotenv()
 
 app = FastAPI()
 
-BACKEND_API_URL = os.getenv("BACKEND_API_URL")
+BACKEND_API_URL = config.BACKEND_API_URL
+
 print(f"Loaded FRONTEND_API_URL: {BACKEND_API_URL}") 
 @app.get("/")
 def read_root():
